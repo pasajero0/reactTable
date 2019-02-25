@@ -1,0 +1,19 @@
+.renderField  {
+	
+    &__input{
+        font-size: 14px;
+        border: none;
+        outline: none;
+        border: 2px solid lightgray;
+        border-radius: 5px;
+        padding-left: 5px;
+        margin: 5px 10px;
+    }
+    &__error {
+        color: tomato;
+        font-size: 15px;
+        min-height: 20px;
+        text-align: center;
+    }
+
+}

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.11.0",
     "react": "^16.8.2",
+    "react-advanced-form": "^1.6.7",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
   },

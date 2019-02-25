@@ -1,25 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import TableForm from './components/TableForm/TableForm.js'
+import Table from './components/Table/Table.js'
 import './App.css';
 
+
 class App extends Component {
+
+  state = {usersList: []}
+
+  loadFromLocalStorage = () => {
+    let arr = JSON.parse(localStorage.getItem('usersList'));
+    if (!arr) arr = [];   
+    this.setState({usersList: arr})
+  }
+
+  updateLocalStorage(value) {
+    localStorage.removeItem('usersList');
+    localStorage.setItem('usersList', JSON.stringify(value));
+  }
+
+  addToState = value => {
+    this.setState( { usersList: [ ...this.state.usersList, value ] } );
+    console.log(this.state.usersList);
+    this.updateLocalStorage(this.state.usersList);
+  }
+
+  removeFromState = index => {
+    let arr = this.state.usersList;
+    arr.splice(index, 1);
+    this.setState( { usersList: arr});
+    this.updateLocalStorage(arr);
+  }
+
+  componentWillMount() {
+    this.loadFromLocalStorage();
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>Table</h1>
+        <TableForm addToState={ this.addToState }></TableForm>
+        <Table 
+          usersList = { this.state.usersList }
+          removeFromState={ this.removeFromState }
+        ></Table>
       </div>
     );
   }

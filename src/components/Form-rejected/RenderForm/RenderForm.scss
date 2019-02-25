@@ -1,0 +1,34 @@
+.renderForm{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0;
+	
+	.renderForm__title{
+		text-align: center;
+	}
+
+	.renderForm__inputs {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 800px;
+	}
+	.renderForm__buttons{
+		display: flex;
+		justify-content: center;
+	}
+	.renderForm__btn{
+		width: 120px;
+		padding: 10px;
+		border-radius: 5px;
+	    color: #fff;
+	    background: #000;
+	    text-transform: uppercase;
+	    outline: none;
+	    border: none;
+	    cursor: pointer;
+	    margin: 0 10px;
+	}
+}
