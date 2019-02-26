@@ -21,7 +21,6 @@ class App extends Component {
 
   addToState = value => {
     this.setState( { usersList: [ ...this.state.usersList, value ] } );
-    console.log(this.state.usersList);
     this.updateLocalStorage(this.state.usersList);
   }
 

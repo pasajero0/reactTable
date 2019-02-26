@@ -11,8 +11,8 @@ const Input = (props) => {
     <div className="input">
       <input className="input__field" {...fieldProps} />
       <div className="input__message">
-        {touched && errors && errors.map((error) => (
-          <p className="input__text">{error}</p>
+        {touched && errors && errors.map((error, i) => (
+          <p key={i} className="input__text">{error}</p>
         ))}
       </div>
     </div>
