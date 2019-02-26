@@ -3,7 +3,7 @@ import { createField, fieldPresets } from 'react-advanced-form';
 import './Input.scss';
 
 const Input = (props) => {
-  
+
   const { fieldProps, fieldState } = props
   const { touched, errors } = fieldState
   

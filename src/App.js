@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TableForm from './components/TableForm/TableForm.js'
 import Table from './components/Table/Table.js'
-import './App.css';
+import './App.scss';
 
 
 class App extends Component {
@@ -39,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Table</h1>
+        <h1>table</h1>
         <TableForm addToState={ this.addToState }></TableForm>
         <Table 
           usersList = { this.state.usersList }

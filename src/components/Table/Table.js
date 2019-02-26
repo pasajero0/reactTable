@@ -1,46 +1,46 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactTable from "react-table";
+import 'react-table/react-table.css';
 import './Table.scss';
 
-class Table extends Component {
+const Table = ( { usersList, removeFromState } ) => { 
+       
+    const columns = [
+        {
+            Header: 'id',
+            Cell: props => <span className='number'>{props.index+1}</span>
+        },
+        {
+            Header: 'First name',
+            accessor: 'firstName'
+        }, 
+        {
+            Header: 'Last name',
+            accessor: 'lastName' 
+        }, 
+        {
+            Header: 'Telephone',
+            accessor: 'telephone' 
+        },
+        {
+            Header: 'Age',
+            accessor: 'age'
+        },
+        {
+            Header: 'button',
+            Cell: props => <button className='tableSection__button' onClick={()=>removeFromState(props.index)}>remove</button>
+        }
+    ]
+    
+    return (
+        <ReactTable
+        className="tableSection__table"
+        data={usersList}
+        columns={columns}
+        defaultPageSize={20}
+        />
+    )
 
-    render() {
-
-        const {usersList} = this.props;
-
-        return(
-            <section className="tableSection">
-                <table className="tableSection__table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First name</th>
-                            <th>Second name</th>
-                            <th>Telephone</th>
-                            <th>Age</th>
-                            <th>---</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {usersList.map((value, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>{i+1}</td>
-                                    <td>{value.firstName}</td>
-                                    <td>{value.lastName}</td>
-                                    <td>{value.telephone}</td>
-                                    <td>{value.age}</td>
-                                    <td>
-                                        <button onClick={()=>this.props.removeFromState(i)}>remove</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </section>
-
-        )
-    }
 };
 
 export default Table;
